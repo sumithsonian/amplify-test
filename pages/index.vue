@@ -8,7 +8,6 @@
       </li>
     </ul>
     <h2>News</h2>
-    {{ announcements }}
     <ul>
       <li v-for="announcement of announcements.contents" :key="announcement.id">
         <NuxtLink :to="`/announcements/${announcement.id}`">
@@ -16,7 +15,7 @@
         </NuxtLink>
       </li>
     </ul>
-    {{ news }}
+    {{ config }}
   </div>
 </template>
 
