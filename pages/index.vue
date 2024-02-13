@@ -9,10 +9,7 @@
     </ul>
     <h2>News</h2>
     <ul>
-      <li
-        v-for="announcement of announcements.contents"
-        :key="announcement.id"
-      >
+      <li v-for="announcement of announcements.contents" :key="announcement.id">
         <NuxtLink :to="`/announcements/${announcement.id}`">
           {{ announcement.title }}
         </NuxtLink>
@@ -25,8 +22,8 @@
 <script setup lang="ts">
 const config = useRuntimeConfig().public;
 
-const { data: events } = await useFetch("/api/events");
-const { data: announcements } = await useFetch("/news", {
+const { data: events } = useFetch("/api/events");
+const { data: announcements } = useFetch("/news", {
   headers: { "X-MICROCMS-API-KEY": config.microCmsApiKey },
   baseURL: config.microCmsApiServiceUrl,
 });
