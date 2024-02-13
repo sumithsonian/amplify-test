@@ -15,20 +15,18 @@
         </NuxtLink>
       </li>
     </ul>
-    {{ config }}
   </div>
 </template>
 
 <script setup lang="ts">
 const config = useRuntimeConfig().public;
 
-const { data: events } = useFetch("/api/events");
-const { data: announcements } = useFetch(
+const { data: events } = await useFetch("/api/events");
+const { data: announcements } = await useFetch(
   config.microCmsApiServiceUrl + "/news",
   {
     headers: { "X-MICROCMS-API-KEY": config.microCmsApiKey },
   }
 );
 
-console.log(announcements);
 </script>
